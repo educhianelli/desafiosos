@@ -24,3 +24,10 @@ http://localhost:8080/ativos
 
 Link para acessar a documentação da API(rest):
 http://localhost:8080/swagger-ui.html
+
+
+Obs: Projeto incompleto
+Faltaram alguns ajustes:
+- upload e dowload de pdf;
+- ajustes no cliente;
+- blindar aplicação com DTO;
