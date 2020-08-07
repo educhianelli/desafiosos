@@ -21,5 +21,6 @@ Após subir a aplicação o banco será gerado automaticamente.
 
 Link para acessar o sistema:
 http://localhost:8080/ativos
+
 Link para acessar a documentação da API(rest):
 http://localhost:8080/swagger-ui.html
