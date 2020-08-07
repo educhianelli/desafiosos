@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+	<div class="corpo" layout:fragment="corpo">
+
+		<div id="loader-form" class="pre-load"></div>
+
+		<form id="form-add-patrimonio" action="#">
+
+
+
+
+			<body>
+				<h3>Cadastrar Patrimônio</h3>
+			</body>
+
+
+			<div class="alert alert-success" id="patrimonioSucesso" role="alert"
+				style="display: none;">Patrimônio salvo com sucesso!</div>
+			<div class="alert alert-danger" id="marcaErro" role="alert"
+				style="display: none;">Campo 'MARCA' não pode ser vazio!</div>
+			<div class="alert alert-danger" id="nomePatrimonioErro" role="alert"
+				style="display: none;">Campo 'NOME' não pode ser vazio!</div>
+
+
+			<div class="form-group col-md-8">
+				<label for="nomePatrimonioFor">Nome</label> <input type="text"
+					class="form-control" id="nomePatrimonio" name="nomePatrimonio"
+					aria-describedby="nomePatrimonio" placeholder="Nome do patrimônio" />
+			
+			</div>
+			<div class="form-group col-md-8">
+				<div>
+					<label for="marca">Marca</label>
+				</div>
+				<div class="input-group">
+					<select id="marca" name="marca" class="form-control">
+						<option value="">Selecione</option>
+						<option th:each="c : ${marcas}" th:text="${c.nome}"
+							th:value="${c.id}">...</option>
+					</select>
+					<div class="input-group-btn">
+
+						<button type="button" class="btn btn-primary" data-toggle="modal"
+							data-target="#modalMarca">+</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group col-md-8">
+				<label for="descricaoPatrimonio">Descrição</label> <input
+					type="text" class="form-control" id="descricaoPatrimonio"
+					name="descricaoPatrimonio" aria-describedby="descricaoPatrimonio"
+					placeholder="Descrição do patrimônio" />
+				
+			</div>
+
+			<div class="row p-3 ">
+				<button type="button" class="btn btn-primary btn-lg btn-block"
+					onclick="salvar()">Cadastrar</button>
+			</div>
+		</form>
+
+
+
+	<!-- 	<h2>Lista de Patrimônios</h2>
+		<table>
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>Nome</td>
+
+				</tr>
+			</thead>
+			<tbody id="tablebody">
+				<tr id="pattern" style="display: none;">
+					<td><span id="tableId">#</span></td>
+					<td><span id="tableNome">Nome</span></td>
+ -->
+
+					<!-- <td><input id="editar" type="button" class="button"
+					value="Editar" onclick="editarCliente(this.id)" /> <input
+					id="excluir" type="button" class="button" value="Excluir"
+					onclick="excluirCliente(this.id)" /></td> -->
+			<!-- 	</tr>
+			</tbody>
+		</table>
+
+ -->
+
+
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="modalMarca" tabindex="-1" role="dialog"
+			aria-labelledby="modalMarca" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+
+						<h5 class="modal-title" id="modalMarcaTitle">Cadastrar Marca</h5>
+
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+
+					</div>
+					<div class="alert alert-success" id="marcaSucesso" role="alert"
+						style="display: none;">Marca salva com sucesso!</div>
+					<div class="alert alert-danger" id="marcaError" role="alert"
+						style="display: none;">Campo 'NOME' não pode ser vazio!</div>
+					<div class="modal-body">
+						<div class="form-group col-md-8">
+							<label for="nome">Nome</label> <input type="text"
+								class="form-control" id="nomeMarca" name="nomeMarca"
+								aria-describedby="nomeMarca" placeholder="Nome da Marca" />
+							<!--             <small id="linkOferta" class="form-text text-muted">      </small>
+ -->
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Fechar</button>
+						<button  class="btn btn-primary"
+							onclick="gravarMarca()">Salvar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script th:src="@{/js/patrimonio.js}" th:fragment="js"></script>
+		<script th:src="@{/js/marca.js}" th:fragment="js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+	<div class="corpo" layout:fragment="corpo">
+		<div class="alert alert-success" id="sucessoExclusaoMsg" role="alert"
+			style="display: none;">Patrimônio excluído com sucesso!</div>
+		<table id="tabela-ativos" class="display nowrap" style="width: 100%">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nome</th>
+					<th scope="col">Marca</th>
+					<th scope="col">Descrição</th>
+					<th scope="col">Tombo</th>
+				</tr>
+			</thead>
+		</table>
+
+
+
+
+		<!-- <h2>Lista de Patrimônios</h2>
+		<table>
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>Nome</td>
+
+				</tr>
+			</thead>
+			<tbody id="tablebody">
+				<tr id="pattern" style="display: none;">
+					<td><span id="tableId">#</span></td>
+					<td><span id="tableNome">Nome</span></td>
+
+
+					<td><input id="editar" type="button" class="button"
+					value="Editar" onclick="editarCliente(this.id)" /> <input
+					id="excluir" type="button" class="button" value="Excluir"
+					onclick="excluirCliente(this.id)" /></td>
+				</tr>
+			</tbody>
+		</table> -->
+
+
+
+
+		<div th:replace="patrimonio-modal-del :: modal-delete"></div>
+		<div th:replace="patrimonio-modal-edit :: modal-form"></div>
+	</div>
+
+	<script th:src="@{/js/patrimonio-list.js}" th:fragment="js"></script>
+
+
+
+
+
+
+</body>
+</html>

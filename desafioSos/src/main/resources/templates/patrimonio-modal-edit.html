@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modal-form" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
+		th:fragment="modal-form">
+		<div class="modal-dialog modal-dialog-centered modal-lg"
+			role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Editar
+						Patrimônio</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="form-edit-patrimonio" action="#">
+						<div class="form-group">
+							<div class="alert alert-success" id="patrimonioSucesso"
+								role="alert" style="display: none;">Patrimônio salvo com
+								sucesso!</div>
+							<div class="alert alert-danger" id="marcaErro" role="alert"
+								style="display: none;">Campo 'MARCA' não pode ser vazio!</div>
+							<div class="alert alert-danger" id="nomePatrimonioErro"
+								role="alert" style="display: none;">Campo 'NOME' não pode
+								ser vazio!</div>
+
+
+							<div class="form-group col-md-8">
+								<label for="nomePatrimonioFor">Nome</label> <input type="text"
+									class="form-control" id="edt_nomePatrimonio" name="edt_nomePatrimonio"
+									aria-describedby="nomePatrimonio"
+									placeholder="Nome do patrimônio" />
+
+							</div>
+							<div class="form-group col-md-8">
+								<div>
+									<label for="marca">Marca</label>
+								</div>
+								<div class="input-group">
+									<select id="edt_marca" name="marca" class="form-control">
+										<option value="">Selecione</option>
+										<option th:each="c : ${marcas}" th:text="${c.nome}"
+											th:value="${c.id}">...</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group col-md-8">
+								<label for="descricaoPatrimonio">Descrição</label> <input
+									type="text" class="form-control" id="edt_descricaoPatrimonio"
+									name="descricaoPatrimonio"
+									aria-describedby="descricaoPatrimonio"
+									placeholder="Descrição do patrimônio" />
+
+							</div>
+
+						</div>
+						<input type="hidden" class="form-control" id="edt_id" name="id" />
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cancelar</button>
+					<button id="btn-edit-modal" class="btn btn-primary">Confirmar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
